@@ -1,8 +1,16 @@
-from wsgiref.simple_server import  make_server
-from app import FrameworkApp
+from app import FrameWorkApp
 
-app = FrameworkApp()
+app = FrameWorkApp()
 
-server = make_server("localhost",8000, app)
-server.serve_forever()
-# fesf
+@app.route("/home")
+def home(request,response):
+    response.text = "About pagedan alangali salom!"
+
+
+@app.route("/about")
+def about (request,response):
+    response.text = "about pageidan alangali salom!"
+
+@app.route("/contact")
+def contact (request,response):
+    response.text = "91 336 2084"
